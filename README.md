@@ -1,8 +1,20 @@
 # CSC-455-Homelab-Project-Cloud
 
-    While this project was ambitiously intended to become a real app served on my homelab, it has proven to be a networking nightmare (probably because I wrote it). Although functionality is the main focus, I wish I had more networking expertise. You can run this project locally on a single PC. just run `start_server.bat` and `start_client.bat` to experiment with encrypted files. Note that both file names *and* file contents are encrypted; however, hashes are stored server-side. Meaning, as long as a user logs in with the correct credentials, their *file names, structure, and integrity* are all preserved.
 
-    Feel free to explore the settings for a dark mode UI, and try uploading and downloading files to see how it works!
+
+    While this project was ambitiously intended to become a real
+    app served on my homelab, it has proven to be a networking nightmare
+    (probably because I wrote it). Although functionality is the main focus,
+    I wish I had more networking expertise. You can run this project locally
+    on a single PC. just run `start_server.bat` and `start_client.bat` to
+    experiment with encrypted files. Note that both file names *and* file
+    contents are encrypted; however, hashes are stored server-side. 
+    Meaning, as long as a user logs in with the correct credentials, their 
+    *file names, structure, and integrity* are all preserved.
+
+    Feel free to explore the settings for a dark mode UI,
+    and try uploading and downloading files to see how it works!
+
 
 ## Features
 
