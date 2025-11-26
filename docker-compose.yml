@@ -15,7 +15,7 @@ services:
       - ./config.yaml:/app/config.yaml:ro
     environment:
       - FLASK_ENV=production
-      - SECRET_KEY=${SECRET_KEY:-change-this-secret-key}
+      - SECRET_KEY=${2f8Jk3lK9n2pQw4rT6yZx8vB1cD5eF7gH0jLmN4pQrStUvWxY}
     restart: unless-stopped
     networks:
       - cloud-storage-net

@@ -68,7 +68,7 @@ network:
     eth0:
       dhcp4: no
       addresses:
-        - 192.168.1.100/24  # Your server's static IP
+        - 192.168.1.236
       gateway4: 192.168.1.1
       nameservers:
         addresses:
