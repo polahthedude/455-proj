@@ -1,7 +1,5 @@
 # CSC-455-Homelab-Project-Cloud
 
-
-
     While this project was ambitiously intended to become a real
     app served on my homelab, it has proven to be a networking nightmare
     (probably because I wrote it). Although functionality is the main focus,
@@ -19,7 +17,7 @@
 ## Features
 
 - **Client-Side Encryption**: AES-256-GCM encryption with RSA-2048 key management
-- **Zero-Knowledge Architecture**: Server never sees plaintext data
+- **Encrypted Architecture**: Server never sees plaintext data
 - **User Authentication**: JWT-based authentication with bcrypt password hashing
 - **GUI Interface**: User-friendly Tkinter desktop application
 - **Version Control**: Automatic versioning of file updates
@@ -38,7 +36,7 @@
 
 1. Clone the repository
 2. Create virtual environment:
-   ```bash
+   ```cmd
    python -m venv venv
    venv\Scripts\activate  # Windows
    ```

@@ -23,7 +23,7 @@ The easiest way to deploy on Proxmox is using Docker in a lightweight Linux VM o
 
 #### 2. Install Docker
 
-```bash
+```cmd
 # Update system
 sudo apt update && sudo apt upgrade -y
 
@@ -493,18 +493,3 @@ Ubuntu VM/LXC (192.168.1.100)
 ```
 
 Client connects to: `https://yourdomain.com` → Nginx → Flask
-
----
-
-## Next Steps
-
-1. ✅ Set up Proxmox VM
-2. ✅ Install Docker or systemd service
-3. ✅ Configure networking (port forwarding)
-4. ✅ Build client executable
-5. ✅ Test locally then externally
-6. 🔒 Set up SSL with Let's Encrypt
-7. 📱 Share executable with users
-8. 📊 Monitor and maintain
-
-Need help with any step? Let me know!

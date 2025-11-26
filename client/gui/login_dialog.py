@@ -68,7 +68,7 @@ class LoginDialog:
         # Subtitle
         subtitle_label = ttk.Label(
             main_frame,
-            text="Zero-knowledge encryption",
+            text="Secure encrypted storage",
             font=("Arial", 10)
         )
         subtitle_label.pack(pady=(0, 30))
@@ -225,7 +225,7 @@ class LoginDialog:
         # Update APIClient with selected server IP
         server_ip = self.selected_server_ip.get().strip()
         if not server_ip:
-            messagebox.showerror("Error", "Please enter a server IP and port (e.g. 127.0.0.1:5000)")
+            messagebox.showerror("Error", "Please enter a server IP and port (e.g. 192.168.1.100:5000)")
             return
         # Add to history if not present
         if server_ip not in self.server_ip_history:
@@ -239,29 +239,17 @@ class LoginDialog:
         if self.api_client.health_check():
             self.status_label.config(text="Server is online ✓", foreground="green")
             self.server_ip_combo.set(server_ip)
-            messagebox.showinfo(
-                "Connection Success",
-                "Successfully connected to server!\\n\\n"
-                "Server is running and ready to accept requests."
-            )
+            messagebox.showinfo("Connection Success", "Successfully connected to server!\n\nServer is running and ready to accept requests.")
         else:
             self.status_label.config(text="Server is offline ✗", foreground="red")
-            messagebox.showerror(
-                "Connection Failed",
-                "Cannot connect to server.\\n\\n"
-                "Please check:\\n"
-                "• Server is running (run start_server.bat)\\n"
-                "• Server address in config.yaml is correct\\n"
-                "• No firewall blocking port 5000\\n\\n"
-                "Default server: http://127.0.0.1:5000"
-            )
+            messagebox.showerror("Connection Failed", "Cannot connect to server.\n\nPlease check:\n• Server is running (use the provided start script or Docker)\n• Server address is correct\n• No firewall blocking port 5000\n\nDefault server: http://your-server-ip:5000")
     
     def handle_login(self):
         """Handle login button click"""
         # Update APIClient with selected server IP
         server_ip = self.selected_server_ip.get().strip()
         if not server_ip:
-            messagebox.showerror("Error", "Please enter a server IP and port (e.g. 127.0.0.1:5000)")
+            messagebox.showerror("Error", "Please enter a server IP and port (e.g. 192.168.1.100:5000)")
             return
         # Add to history if not present
         if server_ip not in self.server_ip_history:
@@ -339,7 +327,7 @@ class LoginDialog:
                     "Connection Error",
                     f"{message}\n\n"
                     "Please ensure:\n"
-                    "• Server is running (run start_server.bat)\n"
+                    "• Server is running (use the provided start script or Docker)\n"
                     "• Server address is correct in config.yaml\n"
                     "• No firewall blocking the connection"
                 )

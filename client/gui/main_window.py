@@ -324,12 +324,12 @@ class MainWindow:
         messagebox.showinfo(
             "About",
             "CSC-455-Homelab-Project-Cloud v1.0\n\n"
-            "A zero-knowledge file storage system with\n"
+            "A secure encrypted file storage system with\n"
             "client-side encryption.\n\n"
             "Features:\n"
             "• AES-256-GCM encryption\n"
             "• RSA-2048 key management\n"
-            "• Zero-knowledge architecture\n"
+            "• Encrypted architecture\n"
             "• Dark/Light theme support\n\n"
             "Created for CS 455 Project"
         )

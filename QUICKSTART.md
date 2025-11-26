@@ -3,7 +3,7 @@
 ## Installation
 
 ### 1. Create Virtual Environment
-```powershell
+```cmd
 python -m venv venv
 venv\Scripts\activate
 ```
@@ -67,7 +67,7 @@ python -m client.gui.main_window
    - Click "Login"
 
 5. **Upload files**:
-   - Click "📁 Upload File"
+   - Click "Upload File"
    - Select a file
    - File will be encrypted and uploaded automatically
 
@@ -76,24 +76,6 @@ python -m client.gui.main_window
    - Click "📥 Download" or double-click the file
    - Choose where to save
    - File will be downloaded and decrypted automatically
-
-## Features
-
-### ✓ Implemented
-- ✅ User registration and login
-- ✅ AES-256-GCM file encryption
-- ✅ RSA-2048 key management
-- ✅ File upload/download
-- ✅ File deletion
-- ✅ Storage quota tracking
-- ✅ GUI interface
-- ✅ JWT authentication
-
-### 🚧 Optional Features (To Be Added)
-- ⏳ File versioning
-- ⏳ File sharing between users
-- ⏳ Search and filtering
-- ⏳ File metadata encryption display
 
 ## Architecture
 
@@ -118,7 +100,7 @@ python -m client.gui.main_window
 
 ## Security Features
 
-- **Zero-Knowledge**: Server never sees plaintext data
+- **Encrypted**: Server never sees plaintext data
 - **Client-Side Encryption**: All encryption happens on client
 - **Strong Encryption**: AES-256-GCM with authentication
 - **Secure Key Exchange**: RSA-2048 for key encryption
