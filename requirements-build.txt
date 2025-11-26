@@ -1,0 +1,8 @@
+# Build Requirements
+# Install these to build executables: pip install -r requirements-build.txt
+
+# PyInstaller for creating executables
+pyinstaller==6.3.0
+
+# All runtime requirements
+-r requirements.txt

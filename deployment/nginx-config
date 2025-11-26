@@ -1,0 +1,82 @@
+server {
+    listen 80;
+    server_name yourdomain.com;  # CHANGE THIS
+
+    # Redirect HTTP to HTTPS (after SSL is set up)
+    # Uncomment these lines after running certbot
+    # return 301 https://$server_name$request_uri;
+}
+
+# Uncomment this block after getting SSL certificate
+# server {
+#     listen 443 ssl http2;
+#     server_name yourdomain.com;  # CHANGE THIS
+# 
+#     # SSL certificates (managed by certbot)
+#     ssl_certificate /etc/letsencrypt/live/yourdomain.com/fullchain.pem;
+#     ssl_certificate_key /etc/letsencrypt/live/yourdomain.com/privkey.pem;
+#     include /etc/letsencrypt/options-ssl-nginx.conf;
+#     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+# 
+#     # Security headers
+#     add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+#     add_header X-Frame-Options "SAMEORIGIN" always;
+#     add_header X-Content-Type-Options "nosniff" always;
+#     add_header X-XSS-Protection "1; mode=block" always;
+# 
+#     # File upload size limit
+#     client_max_body_size 100M;
+# 
+#     # Proxy to Flask application
+#     location / {
+#         proxy_pass http://localhost:5000;
+#         proxy_set_header Host $host;
+#         proxy_set_header X-Real-IP $remote_addr;
+#         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#         proxy_set_header X-Forwarded-Proto $scheme;
+#         
+#         # WebSocket support (for future features)
+#         proxy_http_version 1.1;
+#         proxy_set_header Upgrade $http_upgrade;
+#         proxy_set_header Connection "upgrade";
+#         
+#         # Timeouts
+#         proxy_connect_timeout 60s;
+#         proxy_send_timeout 60s;
+#         proxy_read_timeout 60s;
+#     }
+# 
+#     # Static file caching (if serving any static files)
+#     location ~* \.(jpg|jpeg|png|gif|ico|css|js)$ {
+#         expires 1y;
+#         add_header Cache-Control "public, immutable";
+#     }
+# }
+
+# Initial configuration (before SSL)
+server {
+    listen 80;
+    server_name yourdomain.com;  # CHANGE THIS
+
+    # File upload size limit
+    client_max_body_size 100M;
+
+    # Proxy to Flask application
+    location / {
+        proxy_pass http://localhost:5000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        
+        # WebSocket support
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        
+        # Timeouts
+        proxy_connect_timeout 60s;
+        proxy_send_timeout 60s;
+        proxy_read_timeout 60s;
+    }
+}

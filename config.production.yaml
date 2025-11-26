@@ -1,0 +1,29 @@
+# Production Configuration Template
+# Copy this to config.yaml and customize for your deployment
+
+server:
+  host: "0.0.0.0"  # Listen on all interfaces
+  port: 5000
+  debug: false  # MUST be false in production
+  secret_key: "${SECRET_KEY}"  # Generate with: python -c "import secrets; print(secrets.token_hex(32))"
+  max_content_length: 104857600  # 100MB
+  upload_folder: "uploads"
+
+database:
+  uri: "sqlite:///csc455_homelab.db"  # Or use PostgreSQL: postgresql://user:pass@host/db
+
+security:
+  jwt_expiration_hours: 24
+  bcrypt_rounds: 12
+  rate_limit_per_minute: 100
+  password_min_length: 12
+
+storage:
+  max_file_size: 104857600  # 100MB
+  user_quota: 1073741824  # 1GB per user
+  max_versions: 5
+
+client:
+  server_url: "https://yourdomain.com"  # YOUR SERVER URL HERE
+  keys_directory: ".csc455_homelab/keys"
+  cache_directory: ".csc455_homelab/cache"

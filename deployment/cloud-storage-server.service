@@ -1,0 +1,28 @@
+[Unit]
+Description=Cloud Storage Server
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/cloud-storage
+Environment="PATH=/opt/cloud-storage/venv/bin"
+ExecStart=/opt/cloud-storage/venv/bin/python -m server.app
+Restart=always
+RestartSec=10
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/cloud-storage/uploads /opt/cloud-storage/instance
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=cloud-storage
+
+[Install]
+WantedBy=multi-user.target

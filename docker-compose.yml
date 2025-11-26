@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  cloud-storage:
+    build: .
+    container_name: cloud-storage-server
+    ports:
+      - "5000:5000"
+    volumes:
+      # Persist database
+      - ./instance:/app/instance
+      # Persist uploaded files
+      - ./uploads:/app/uploads
+      # Use production config
+      - ./config.yaml:/app/config.yaml:ro
+    environment:
+      - FLASK_ENV=production
+      - SECRET_KEY=${SECRET_KEY:-change-this-secret-key}
+    restart: unless-stopped
+    networks:
+      - cloud-storage-net
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:5000/api/v1/auth/verify')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+networks:
+  cloud-storage-net:
+    driver: bridge
+
+volumes:
+  instance:
+  uploads:

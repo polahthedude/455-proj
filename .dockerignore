@@ -1,0 +1,48 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Tests
+tests/
+pytest_cache/
+
+# Documentation (not needed in container)
+*.md
+TROUBLESHOOTING.md
+QUICKSTART.md
+
+# Deployment files (not needed in container)
+deployment/
+*.bat
+*.spec
+
+# Instance data (mounted as volumes)
+instance/
+uploads/
+
+# Misc
+.DS_Store
+demo.py
+force_wipe.bat
+wipe_system.py
